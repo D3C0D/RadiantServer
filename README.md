@@ -2,6 +2,7 @@
 A simple HTTP server made with Python to run basic HTML files without the need of installing anything.
 
 # How To Use
+*Due to the use of PyInstaller, there is a false positive on the exe, use the py file if you dont trust it*
 - Just download the exe file from the releases page if you are on Windows, execute it, and it will create a "web.config" file, a "web" folder and an "index.html" page by default.
 - Once those are created, replace the index.html for yours and that is the one the server will serve.
 
