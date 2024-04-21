@@ -16,3 +16,5 @@ port : The port the server will use
 address : The address the server will use
 index_file : The name of the file that will be served.
 
+# Icon
+The icon is the Shallan Davar icon from her chapters on the Stormlight archive. Please, Brandon, don't take the project down :c
