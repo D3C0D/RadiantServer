@@ -64,7 +64,7 @@ if not config.read('web.config'):
     with open('web.config', 'w') as file:
         config.write(file)
 
-class OalamaChatsBaseHandler(BaseHTTPRequestHandler):
+class RadiantServerBaseHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
@@ -74,7 +74,7 @@ class OalamaChatsBaseHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     server_address = (config.get('server', 'address'), int(config.get('server', 'port')))
-    httpd = HTTPServer(server_address, OalamaChatsBaseHandler)
+    httpd = HTTPServer(server_address, RadiantServerBaseHandler)
     print("RadiantServer is running...")
     webbrowser.open_new_tab(f'http://localhost:{httpd.server_port}/')
     try:
