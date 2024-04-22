@@ -23,33 +23,42 @@ index_html_file_path = f'{web_folder_path}/{config.get('server', 'index_file')}'
 if not os.path.exists(index_html_file_path):
     with open(index_html_file_path, 'w') as f:
         f.write('''
+                    <!DOCTYPE html>
                     <html>
                     <head>
                     <title>RadiantServer</title>
                     <style>
                         body {
-                        background-color: #000;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100vh; /* Set the height of the page to match the screen height */
+                            background-color: #000;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh; /* Set the height of the page to match the screen height */
+                            flex-direction: column; /* Stack elements vertically */
                         }
-                        h1 {
-                        color: gold;
-                        font-size: 64px;
-                        text-align: center;
+                        .container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        h1, h2 {
+                            color: gold;
+                            font-size: 64px;
+                            text-align: center;
                         }
                         h2 {
-                        color: green;
-                        font-size: 52px;
-                        text-align: center;
+                            color: green;
+                            font-size: 52px;
                         }
                     </style>
                     </head>
                     <body>
-                    <h1>RadiantServer</h1>
-                    <br>
-                    <h2>Is Online</h2>
+                    <div class="container">
+                        <h1>RadiantServer</h1>
+                    </div>
+                    <div class="container">
+                        <h2>Is Online</h2>
+                    </div>
                     </body>
                     </html>
                 ''')
