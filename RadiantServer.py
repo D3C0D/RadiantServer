@@ -145,9 +145,10 @@ class RadiantServerBaseHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     server_address = (config.get('server', 'address'), int(config.get('server', 'port')))
+    host_ip = config.get('server', 'address') if config.get('server', 'address') else 'localhost'
     httpd = HTTPServer(server_address, RadiantServerBaseHandler)
     print("RadiantServer is running...")
-    webbrowser.open_new_tab(f'http://localhost:{httpd.server_port}/index.html')
+    webbrowser.open_new_tab(f'http://{host_ip}:{httpd.server_port}/index.html')
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
