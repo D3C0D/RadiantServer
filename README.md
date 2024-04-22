@@ -10,8 +10,8 @@ A simple HTTP server made with Python to run basic HTML files without the need o
 - The tool uses all standard libraries for its working, so if you use Python 3.9+ it should work just running the py file.
 
 # How To Use exe on Windows
-*Due to the use of PyInstaller, there is a false positive on the exe, run from source if you don't trust it*
-- Just download the exe file from the releases page if you are on Windows, execute it, and it will create a "web.config" file, a "web" folder and an "index.html" page by default.
+- Download the zip file from the releases page if you are on Windows
+- Execute the RadiantServer.exe, and it will create a "web.config" file, a "web" folder and an "index.html" page by default.
 - Once those are created, replace the index.html for yours and that is the one the server will serve.
 
 # Web.Config File
