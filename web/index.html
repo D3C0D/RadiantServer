@@ -1,31 +1,80 @@
 
-                    <html>
-                    <head>
-                    <title>RadiantServer</title>
-                    <style>
-                        body {
-                        background-color: #000;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100vh; /* Set the height of the page to match the screen height */
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <title>RadiantServer</title>
+            <style>
+                body {
+                    background-color: #000;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh; /* Set the height of the page to match the screen height */
+                    flex-direction: column; /* Stack elements vertically */
+                }
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                h1 {
+                    color: gold;
+                    font-size: 64px;
+                    text-align: center;
+                }
+                h2 {
+                    color: green;
+                    font-size: 42px;
+                }
+                h4 {
+                    color: white;
+                    font-size: 22px;
+                }
+                #folderSelect {
+                    margin-top: 20px;
+                    width: 300px; /* Set the width of the combo box */
+                    height: 40px; /* Set the height of the combo box */
+                    font-size: 16px; /* Set the font size of the options */
+                }
+            </style>
+            <script>
+                window.onload = function() {
+                    var folderSelect = document.getElementById('folderSelect');
+
+                    fetch('/folders')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.folders.forEach(folder => {
+                            var option = document.createElement('option');
+                            option.text = folder;
+                            folderSelect.add(option);
+                        });
+                    });
+
+                    folderSelect.addEventListener('change', function() {
+                        var selectedFolder = folderSelect.value;
+                        if (selectedFolder !== '') {
+                            window.location.href = '/' + selectedFolder + '/index.html';
                         }
-                        h1 {
-                        color: gold;
-                        font-size: 64px;
-                        text-align: center;
-                        }
-                        h2 {
-                        color: green;
-                        font-size: 52px;
-                        text-align: center;
-                        }
-                    </style>
-                    </head>
-                    <body>
-                    <h1>RadiantServer</h1>
-                    <br>
-                    <h2>Is Online</h2>
-                    </body>
-                    </html>
-                
+                    });
+                };
+            </script>
+            </head>
+            <body>
+            <div class="container">
+                <h1>RadiantServer</h1>
+            </div>
+            <div class="container">
+                <h2>Is Online</h2>
+            </div>
+            <div class="container">
+                <h4>Choose the page to load:</h4>
+            </div>
+            <div class="container">
+                <select id="folderSelect">
+                    <option value="" disabled selected>Select a folder</option>
+                </select>
+            </div>
+            </body>
+            </html>
+        
